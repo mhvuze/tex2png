@@ -52,7 +52,11 @@ namespace tex2png
             if (magic != 0x20584554) // "TEX "
                 throw new InvalidDataException();
 
-            if (version != 7)
+            if (version == 7 || version == 9)
+            {
+                // proceed
+            }
+            else
                 throw new ArgumentException();
 
             switch (BitConverter.ToUInt16(data, 7))
